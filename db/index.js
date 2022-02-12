@@ -5,14 +5,18 @@ const mongoose = require("mongoose");
 // ℹ️ Sets the MongoDB URI for our app to have access to it.
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
 
-const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/lab-express-drones";
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://Janstopot:1qazxsw2@cluster0.yx19v.mongodb.net/lab-express-drones?retryWrites=true&w=majority' 
+
+//"mongodb://localhost/lab-express-drones";
+
+
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
+    //useFindAndModify: false,
+    //useCreateIndex: true
   })
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
